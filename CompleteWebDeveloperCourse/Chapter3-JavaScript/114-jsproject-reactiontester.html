@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reaction Tester</title>
+
+        <!-- * INTERNAL CSS -->
+        <style type="text/css">
+        
+            #top-container {
+                font-family:Arial, Helvetica, sans-serif;
+                font-size: 150%;
+            }
+
+            #start-button {
+                position: relative;
+                top: -3px;
+                left: 20px;
+            }
+
+            #stop-button {
+                position: relative;
+                top: -3px;
+                left: 40px;
+            }
+
+            .time {
+                font-weight: bold;
+            }
+
+            #current-time {
+                border: solid 2px red;
+            }
+
+            #best-time {
+                border: dotted 2px blue;
+            }
+
+            .clear-div {
+                clear: both;
+            }
+
+            #shape-container {
+                height: 500px; /*like*/
+                width: 1300px; /*like*/
+
+                border: solid 2px black;
+            }
+
+            /*
+            #circle {
+                border-radius: 50%;
+
+                background-color: blue;
+                height: 200px;
+                width: 200px;
+                float: left;
+            }
+
+            #square {
+                background-color: red;
+                height: 200px;
+                width: 200px;
+                float: left;
+            }
+            */
+
+            #shape {
+                position: relative;
+            }
+        
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="top-container">
+            <h1>Test Your Reaction Times!</h1>
+            <p>Click on the boxes and circles as quickly as you can!<button id="start-button">Start!</button><button id="stop-button">Stop!</button></p>
+            <p class="time">Your time: <span id="current-time"></span></p>
+            <p class="time">Best time: <span id="best-time"></span></p>
+        </div>
+
+        <div class="clear-div"></div>
+
+        <div id="shape-container">
+
+            <!--
+                <div id="circle"></div>
+                <div id="square"></div>
+            -->
+
+            <div id="shape"></div>
+
+        </div>
+
+
+        <!-- * INTERNAL JS -->
+        <script type="text/javascript">
+        
+            // <!-- ! REMOVE #top-container BORDER -->
+
+            console.log("page loaded");
+
+            var timerStart;
+            var delay;
+            var currentTime = 0;
+            var bestTime = 0;
+            //var shapes = ["circle", "square"];
+            //var shapeHeight = 0;
+            //var shapeWidth = 0;
+
+            document.getElementById("start-button").onclick = function() {
+
+                console.log("start button clicked");
+
+                timer();
+
+            } // end start-button.onclick function
+
+            document.getElementById("stop-button").onclick = function() {
+
+                console.log("stop button clicked");
+
+                clearInterval(timerStart);
+                clearTimeout(delay);
+                clearTimeout(randomShape);
+                timeStopped();
+
+            } // end stop-button.onclick function
+
+            document.getElementById("shape").onclick = function() {
+
+                console.log("shape clicked");
+
+                clearInterval(timerStart);
+
+                console.log("time stopped");
+
+                // Make last shape clicked disappear
+                document.getElementById("shape").style.display = "none";
+
+                timeStopped();
+
+                // Resetting timer to 0
+                currentTime = 0;
+
+                console.log("before timeout delay");
+                // Random delay before new shape appears
+                delay = setTimeout(timer, Math.random() * (3-0) * 1000);
+
+            } // end shape.onclick function
+
+            function timer() {
+
+                timerStart = setInterval(timerRun, 1);
+                randomShape();
+
+            } // end timer function
+
+            function timerRun() {
+
+                currentTime++;
+
+            } // end timerRun function
+
+            function timeStopped() {
+
+                document.getElementById("current-time").innerHTML = currentTime + "ms";
+
+                if((bestTime == 0) || (currentTime < bestTime)) {
+
+                    bestTime = currentTime;
+                    document.getElementById("best-time").innerHTML = bestTime + "ms";
+
+                } // end if
+
+            } // end timeStopped function
+
+            function randomShape() {
+
+                console.log("in randomShape()");
+
+                document.getElementById("shape").style.display = "block";
+
+                var randomNum = Math.round(Math.random());
+
+                console.log("randomNum calculated: " + randomNum);
+
+                if(randomNum == 0) {
+
+                    console.log("randomNum was 0");
+                    circle();
+
+                } // end if
+                else if(randomNum == 1) {
+
+                    console.log("randomNum was 1");
+                    square();
+
+                } // end else if
+                else {
+
+                    console.log("randomNum is " + randomNum);
+
+                } // end else
+
+            } // end randomShape function
+
+            function circle() {
+
+                console.log("in circle()");
+
+                var shapeHeight = Math.floor(Math.random() * 100) + 50;
+                var shapeWidth = Math.floor(Math.random() * 300) + 50;
+                var shapeColor = "rgb(" + Math.round(Math.random() * 256) + "," + Math.round(Math.random() * 256) + "," + Math.round(Math.random() * 256) + ")";
+                var shapeTop = Math.floor(Math.random() * 300) + 100;
+                var shapeLeft = Math.floor(Math.random() * 800) + 100;
+
+                console.log("shape-height: " + shapeHeight);
+                console.log("shape-width: " + shapeWidth);
+                console.log("shape-color: " + shapeColor);
+                console.log("shape-top: " + shapeTop);
+                console.log("shape-left: " + shapeLeft);
+
+                document.getElementById("shape").style.borderRadius = "50%";
+                document.getElementById("shape").style.height = shapeHeight + "px";
+                document.getElementById("shape").style.width = shapeWidth + "px";
+                document.getElementById("shape").style.backgroundColor = shapeColor;
+                document.getElementById("shape").style.top = shapeTop + "px";
+                document.getElementById("shape").style.left = shapeLeft + "px";
+
+            } // end circle function
+
+            function square() {
+
+                console.log("in square()");
+
+                var shapeHeight = Math.floor(Math.random() * 400) + 100;
+                var shapeWidth = Math.floor(Math.random() * 800) + 100;
+                var shapeColor = "rgb(" + Math.round(Math.random() * 256) + "," + Math.round(Math.random() * 256) + "," + Math.round(Math.random() * 256) + ")";
+                var shapeTop = Math.floor(Math.random() * 300) + 100;
+                var shapeLeft = Math.floor(Math.random() * 800) + 100;
+
+                console.log("shape-height: " + shapeHeight);
+                console.log("shape-width: " + shapeWidth);
+                console.log("shape-color: " + shapeColor);
+                console.log("shape-top: " + shapeTop);
+                console.log("shape-left: " + shapeLeft);
+
+                document.getElementById("shape").style.borderRadius = "0%";
+                document.getElementById("shape").style.height = shapeHeight + "px";
+                document.getElementById("shape").style.width = shapeWidth + "px";
+                document.getElementById("shape").style.backgroundColor = shapeColor;
+                document.getElementById("shape").style.top = shapeTop + "px";
+                document.getElementById("shape").style.left = shapeLeft + "px";
+
+            } // end square function
+        
+        </script>
+
+    </body>
+
+</html>

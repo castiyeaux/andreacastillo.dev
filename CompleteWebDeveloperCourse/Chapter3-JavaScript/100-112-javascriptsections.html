@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript 3</title>
+
+        <style type="text/css">
+        
+            #code {
+                border: solid 2px black;
+                background-color: lightgray;
+                padding: 10px;
+            }
+        
+        </style>
+
+    </head>
+
+    <body>
+
+        <h3><ins>100. Variables</ins></h3>
+        <input type="text" id="textInput">
+        <button id="changeText">Change Text</button>
+        <p id="100-text">Hello There!</p>
+        <hr>
+
+        <h3><ins>102. Arrays</ins></h3>
+        <div id="code">
+            <code>
+                var <var>tweets</var> = ["Pokémon HOME is dead rn andthat's truly amazing",   "Going back to work for thefirst time since March, to pick up    something bc WFHis 5evr, and I had to use a GPS.", "I love    slurpees";<br>
+                alert(<var>tweets</var>[1]);<br>
+                <br>
+                <var>tweets</var>.push("There are only four weapon safetyrules");<br>
+                console.log(<var>tweets</var>);<br>
+                <br>
+                <var>tweets</var>.splice(2, 1); //start deleting at [2] anddelete one item<br>
+                console.log(<var>tweets</var>);<br>
+                <br>
+                <var>tweets</var>.splice(2, 0, "I miss Team Magma");<br>
+                console.log(<var>tweets</var>);<br>
+                <br>
+                <var>tweets</var>.splice(2, 1, "I miss Team Magma and TeamAqua");<br>
+                console.log(<var>tweets</var>);
+            </code>
+        </div>
+        <hr>
+
+        <h3><ins>104. If Statements</ins></h3>
+        <p>What is the magic word?</p>
+        <input type="text" id="magic-word-input">
+        <button id="magic-button">Check Magic Word</button>
+        <hr>
+
+        <h3><ins>106. JavaScript Game: How Many Fingers</ins></h3>
+        <p>How many fingers am I holding up?</p>
+        <p>Enter a number between 0 and 10 below.</p>
+        <p>You only get one guess (will change after button click)!</p>
+        <input type="text" id="guess-input">
+        <button id="guess-button">Guess Number!</button>
+        <p>----</p>
+        <p>How many fingers am I holding up?</p>
+        <p>Enter a number between 0 and 10 below.</p>
+        <p>Number will change after page reload! How many guesses until you're right?</p>
+        <input type="text" id="guess-input2">
+        <button id="guess-button2">Guess Number!</button>
+        <hr>
+
+        <h3><ins>108. For Loops</ins></h3>
+        <div id="tweets2-div"></div>
+        <hr>
+
+        <h3><ins>110. While Loops</ins></h3>
+        <div id="tweets2-div2"></div>
+        <p>----</p>
+        <p>How many fingers are <em>you</em> holding up?</p>
+        <p>Enter a number between 0 and 10 below. (Promise I won't look!)</p>
+        <input type="text" id="number-input">
+        <button id="enter-button">Enter Number!</button>
+        <div id="comp-thinking"></div>
+        <div id="guess-result"></div>
+        <p>----</p>
+        <!-- With dropdown selection -->
+        <p>How many fingers are <em>you</em> holding up?</p>
+        <p>Enter a number between 0 and 10 below. (Promise I won't look!)</p>
+        <select id="select-input" name="select-number">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button id="enter-button2">Enter Number!</button>
+        <div id="comp-thinking2"></div>
+        <div id="guess-result2"></div>
+        <hr>
+
+        <h3><ins>112. Functions</ins></h3>
+        <p>How many fingers are <em>you</em> holding up?</p>
+        <p>Enter a number between 0 and 10 below. (Promise I won't look!)</p>
+        <input type="text" id="number-input3">
+        <button id="enter-button3">Enter Number!</button>
+        <div id="comp-thinking3"></div>
+        <div id="guess-result3"></div>
+    
+        <script type="text/javascript">
+
+            // old alerts/console.logs commented out
+
+        // 100. Variables
+            /* Activity
+            var x = 5;
+
+            alert(x); //no quotes! "x" would print the letter 'x'
+
+            x = 20;
+            alert(x);
+
+            var name = "Andrea";
+            alert(name);
+
+            document.getElementById("changeText").onclick = function() {
+
+                var textEntered = "";
+                textEntered = document.getElementById("textInput").value;
+                alert("Changed text to: " + textEntered);
+                document.getElementById("100-text").innerHTML = textEntered;
+
+            } //end changeText.onclick function
+            */
+
+        // 102. Arrays
+            /* Activity
+            var favoriteFoods = new Array();
+            favoriteFoods[0] = "pizza";
+            favoriteFoods[1] = "chocolate";
+            alert(favoriteFoods[0]);
+            console.log(favoriteFoods);
+            console.log("Array length: " + favoriteFoods.length);
+            */
+
+            /* Note
+            "Pretty much any webapp you can think of has to store data in arrays" "arrays are perfect for when you don't know how many of something there will be"
+            Ex. email client has to store
+                - user's contacts
+                -user's email
+                -etc. 
+            */
+            /* Activity
+            var tweets = ["Pokémon HOME is dead rn and that's truly amazing", "Going back to work for the first time since March, to pick up something bc WFH is 5evr, and I had to use a GPS.", "I love slurpees"];
+            alert(tweets[1]);
+            tweets.push("There are only four weapon safety rules");
+            console.log(tweets);
+            tweets.splice(2, 1); //start deleting at [2] and delete one item
+            console.log(tweets);
+            tweets.splice(2, 0, "I miss Team Magma");
+            console.log(tweets);
+            tweets.splice(2, 1, "I miss Team Magma and Team Aqua");
+            console.log(tweets);
+            */
+
+        // 104. If Statements
+            /* Activity
+            var x = 1;
+            x = 2;
+            if(x == 1) {
+                alert("x is 1");
+            } //end if
+            else {
+                alert("x is NOT 1");
+            } //end else
+            */
+            //Magic Word
+            /* Activity
+            var magicWord = "Please";
+            var magicWordAttempt = "";
+
+            document.getElementById("magic-button").onclick = function() {
+
+                magicWordAttempt = document.getElementById("magic-word-input").value;
+
+                if(magicWordAttempt == magicWord) {
+                    alert("You are correct! Access Granted.")
+                } //end if
+                else {
+                    alert("You are incorrect! Access Denied")
+                } //end else
+
+            } //end magic-button.onclick function
+            */
+
+        //106. JavaScript Game: How Many Fingers
+            /* Notes
+            Generating Random Numbers
+                -- Returns a random number between 0 (included) and 1 (excluded)
+                    Math.random();
+                -- Returns the largest integer less than or equald to a given number
+                    Math.floor();
+                -- Returns a random integer from 0 to 9
+                    Math.floor(Math.random() * 10);
+                -- Returns a random integer from 0 to 10
+                    Math.floor(Math.random() * 11);
+                -- Returns a random integer from 0 to 99
+                    Math.floor(Math.random() * 100);
+                -- Returns a random integer from 0 to 100
+                    Math.floor(Math.random() * 101);
+                -- Returns a random integer from 1 to 10
+                    Math.floor(Math.random() * 10) + 1;
+                -- Returns a random integer from 1 to 100
+                    Math.floor(Math.random() * 100) + 1;
+
+            Proper Random Functions
+                -- Returns a random NUMBER between min (included) and max (excluded)
+                    function getRandomNum(min, max) {
+                        return Math.random() * (max - min) + min;
+                    }
+                -- Always rounds a number up to the next largest integer
+                    Math.ceil();
+                -- Always return a random INTEGER between min (included) and max (excluded)
+                    function getRandomInt(min, max) {
+                        min = Math.ceil(min);
+                        max = Math.floor(max);
+                        return Math.floor(Math.random() * (max - min) ) + min;
+                    }
+                -- Always return a random INTEGER between min and max (both included)
+                    function getRandomInt(min, max) {
+                        min = Math.ceil(min);
+                        max = Math.floor(max);
+                        return Math.floor(Math.random() * (max - min + 1) ) + min;
+                    }
+            */
+            
+            //Okay he said to Google for the answer since that's #DevLife, which I did and found the beautiful code below
+            /*
+            var actualNumber = "";
+            var numberGuessAttempt = "";
+
+            document.getElementById("guess-button").onclick = function() {
+
+                actualNumber = getRandomInt(0, 10);
+                numberGuessAttempt = document.getElementById("guess-input").value;
+
+                if(numberGuessAttempt == actualNumber) {
+                    alert("Correct, good guess! You should play the lottery!")
+                } //end if
+                else {
+                    alert("Wrong! I was holding up " + actualNumber + " fingers!");
+                } //end else
+
+            } //end guess-button.onclick function
+
+            function getRandomInt(min, max) {
+
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+
+            } //end getRandomInt function
+            */
+
+            //But since wE hAvEn'T dOnE fUnCtIoNs YeT, we're using the ugly code below
+                //But I added in the else if he mentioned at the end of the video
+            /* Activity
+            document.getElementById("guess-button").onclick = function() {
+
+                //alert(Math.floor(Math.random() * 6)); // his example
+                // Multiply by 5 to get a bigger random number (i.e. NOT in between 0 and 1)
+                // Math.floor() basically to get rid of the decimal
+                // Change to multiply by 6 so possible number range is 0 to 5, instead of 0 to 4
+
+                //actualNumber = Math.floor(Math.random() * 11);
+
+                var actualNumber = Math.random();
+                actualNumber = actualNumber * 11;
+                actualNumber = Math.floor(actualNumber);
+
+                var numberGuessAttempt = document.getElementById("guess-input").value;
+
+                if(numberGuessAttempt == actualNumber) {
+                    alert("Correct, good guess! You should play the lottery!")
+                } //end if
+                else {
+                    alert("Wrong! I was holding up " + actualNumber + " fingers!");
+                } //end else
+
+            } //end guess-button.onclick function
+
+            var actualNumber2 = Math.random();
+            actualNumber2 = actualNumber2 * 11;
+            actualNumber2 = Math.floor(actualNumber2);
+
+            document.getElementById("guess-button2").onclick = function() {
+
+                var numberGuessAttempt2 = document.getElementById("guess-input2").value;
+
+                if(numberGuessAttempt2 == actualNumber2) {
+                    alert("Correct, good guess! You should play the lottery!");
+                } // end if
+                else if(numberGuessAttempt2 < actualNumber2) {
+                    alert("Wrong! You're too low!")
+                } // end else if
+                else {
+                    alert("Wrong! You're too high!")
+                } // end else
+
+            } // end guess-button2.onclick function
+            */
+
+        // 108. For Loops
+            /*
+            for(var i = 0; i < 6; i++) {
+
+                alert(i);
+
+            } // end for loop
+
+            for(var i = 5; i > 0; i--) {
+
+                alert(i);
+
+            } // end for loop
+            */
+            /* Activity
+            var tweets2 = ["Pokémon HOME is dead rn and that's truly amazing", "Going back to work for the first time since March, to pick up something bc WFH is 5evr, and I had to use a GPS.", "I love slurpees"];
+            */
+            /* Activity
+            for(var i = 0; i < tweets2.length; i++) {
+
+                alert(tweets2[i]);
+
+            } // end for loop
+            */
+            
+            /* Activity
+            var tweetString = "";
+                // To store HTML for array
+                // Always add a value - even if it's an empty string - to avoid printing 'undefined'
+            for(var i = 0; i < tweets2.length; i++) {
+
+                tweetString = tweetString + "<p>" + tweets2[i] + "</p>";
+                document.getElementById("tweets2-div").innerHTML = tweetString;
+
+            } // end for loop
+            */
+
+        // 110. While Loops
+            // turning the above for loop into a while loop
+            /* Activity
+            var tweetString = "";
+            var i = 0;
+
+            while(i < tweets2.length) {
+
+                tweetString = tweetString + "<p>" + tweets2[i] + "</p>";
+                i++;
+
+            } // end while loop
+
+            document.getElementById("tweets2-div2").innerHTML = tweetString;
+            */
+
+            /* Notes
+            When would a while loop be useful?
+            Altering How Many Fingers from <em>us</em> guessing how many fingers the <em>computer</em> is holding up, to where the <em> computer</em> is guessing how many fingers <em>we're</em> holding up
+            */
+            /*
+            document.getElementById("enter-button").onclick = function() {
+
+                // The amount of fingers I'm holding up
+                var myNumber = document.getElementById("number-input").value;
+
+                // Computer thinking
+                document.getElementById("comp-thinking").innerHTML = "<p>Thinking...</p>";
+
+                // Computer's guess
+                var compGuess = Math.random();
+                compGuess = compGuess * 11;
+                compGuess = Math.floor(compGuess);
+
+                /* WHY doesn't this work?! (see line 406 and below)
+                // Checking computer's guess
+                if(compGuess == myNumber) {
+
+                    document.getElementById("guess-result").innerHTML = "<p>Well, would you look at that...I was right - and on the first try too!<br>Your number was " + myNumber + "!</p>";
+                
+                } // end if
+                else {
+
+                    var compAttempts = 0;
+                    while(compGuess !== myNumber) {
+                        document.getElementById("guess-result").innerHTML = "<p>" + compGuess + ", ...nope</p>";
+                        compAttempts++;
+                        compGuess = Math.floor(Math.random() * 11);
+                    } // end while loop
+                    document.getElementById("guess-result").innerHTML = "<p>Finally! Your number was " + myNumber + "!<br>And it only took me " + compAttempts + " guesses!</p>";
+
+                } // end else
+                */
+            /*
+                // Checking computer's guess
+                // Using a boolean
+                // Ugh had to copy previous 'document.getElementById("guess-result").innerHTML' and add it to new stuff to be printed
+                var gotIt = false;
+                var compAttempts = 1;
+
+                while(gotIt == false) {
+
+                    if(compGuess == myNumber) {
+
+                        if(compAttempts == 1) {
+
+                            gotIt = true;
+                            document.getElementById("guess-result").innerHTML = document.getElementById("guess-result").innerHTML + "<p>Well, would you look at that...I was right - and on the first try too!<br>Your number was " + myNumber + "!</p>";
+
+                        } // end if
+                        else {
+
+                            gotIt = true;
+                            document.getElementById("guess-result").innerHTML = document.getElementById("guess-result").innerHTML + "<p>Finally! Your number was " + myNumber + "!<br>And it only took me " + compAttempts + " guesses!</p>";
+
+                        } // end else
+
+                    } // end if
+                    else {
+
+                        document.getElementById("guess-result").innerHTML = document.getElementById("guess-result").innerHTML + "<p>" + compGuess + ", ...nope</p>";
+                        //alert(compGuess + ", ...nope"); //works
+                        compAttempts++;
+
+                    } // end else
+                    compGuess = Math.floor(Math.random() * 11);
+
+                } // end while loop
+
+            } // end enter-button.onclick function
+            */
+            
+            /*
+            // With dropdown select
+            document.getElementById("enter-button2").onclick = function() {
+
+                // The amount of fingers I'm holding up
+                var myNumber2 = document.getElementById("select-input").value;
+
+                // Computer thinking
+                document.getElementById("comp-thinking2").innerHTML = "<p>Thinking...</p>";
+
+                // Computer's guess
+                var compGuess2 = Math.random();
+                compGuess2 = compGuess2 * 11;
+                compGuess2 = Math.floor(compGuess2);
+
+                // Checking computer's guess
+                var gotIt2 = false;
+                var compAttempts2 = 1;
+
+                while(gotIt2 == false) {
+
+                    if(compGuess2 == myNumber2) {
+
+                        if(compAttempts2 == 1) {
+
+                            gotIt2 = true;
+                            document.getElementsById("guess-result2").innerHTML = document.getElementById("guess-result2").innerHTML + "<p>Well, would you look at that... I was right - and on the first try too!<br>Your number was " + myNumber2 + "!</p>";
+
+                        } // end if
+                        else {
+
+                            gotIt2 = true;
+                            document.getElementsById("guess-result2").innerHTML = document.getElementById("guess-result2").innerHTML + "<p>Finally!<br>Your number was " + myNumber2 + "!<br>And it only took me " + compAttempts2 + " guesses!</p>";
+
+                        } // end else
+
+                    } // end if
+                    else {
+
+                        document.getElementsById("guess-result2").innerHTML = document.getElementById("guess-result2").innerHTML + "<p>" + compGuess2 + ", ...nope</p>";
+                        //alert(compGuess2 + ", ...nope"); // works
+                        compAttempts2++;
+
+                    } // end else
+                    compGuess2 = Math.floor(Math.random() * 11);
+
+                } // end while loop
+
+            } // end enter-button2.onclick function
+            */
+            
+        // 112. Functions
+            // basic function and function call
+            /* Activity
+            function alertMe() {
+
+                alert("Howdy");
+
+            } // end alertMe function
+
+            alertMe();
+            */
+
+            // average of two numbers
+            /* Activity
+            var x = 5;
+            var y = 10;
+
+            function averageNum(a, b) {
+
+                return (a + b) / 2;
+
+            } // end averageNum function
+
+            alert(averageNum(x, y));
+            */
+            
+            // Computer guessing from while loop
+            // ugh can't really make it print what it did before with returning true/false from the function
+            function guess(correctAnswer) {
+
+                var compGuess3 = Math.random();
+                compGuess3 = compGuess3 * 11;
+                compGuess3 = Math.floor(compGuess3);
+
+                if(compGuess3 == correctAnswer) {
+
+                    return (true); // difference with ()?
+
+                } // end if
+                else {
+
+                    return (false); // difference with ()?
+
+                } // end else
+
+            } // end guess function
+
+            document.getElementById("enter-button3").onclick = function() {
+
+                var myNumber3 = document.getElementById("number-input3").value;
+
+                var gotIt3 = false;
+                var compAttempts3 = 1;
+
+                while(gotIt3 == false) {
+
+                    if(guess(myNumber3) == true) {
+
+                        if(compAttempts3 == 1) {
+
+                            gotIt3 = true;
+                            document.getElementById("guess-result3").innerHTML = document.getElementById("guess-result3").innerHTML + "<p>Well, would you look at that...I was right - and on the first try too!<br>Your number was " + myNumber3 + "!</p>";
+
+                        } // end if
+                        else {
+
+                            gotIt3 = true;
+                            document.getElementById("guess-result3").innerHTML = document.getElementById("guess-result3").innerHTML + "<p>Finally! Your number was " + myNumber3 + "!<br>And it only took me " + compAttempts3 + " guesses!</p>";
+
+                        } // end else
+
+                    } // end if
+                    else {
+
+                        compAttempts3++;
+
+                    } // end else
+
+                } // end while loop
+
+            } // end enter-button3.onclick function
+
+        </script>
+    
+    </body>
+
+</html>

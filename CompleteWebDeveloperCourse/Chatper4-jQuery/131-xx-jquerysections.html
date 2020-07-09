@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery 2</title>
+
+        <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+        <!-- * INTERNAL CSS -->
+        <style type="text/css">
+
+            #circle {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .square {
+                height: 200px;
+                width: 200px;
+                background-color: red;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .clear-div {
+                clear: both;
+            }
+
+            .display-none {
+                display: none;
+            }
+
+            #circle2 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: blue;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h3><ins>131. Fading Content</ins></h3>
+        <div id="circle"class="131shape"></div>
+        <div class="square 131shape"></div>
+        <div class="square 131shape"></div>
+        <div class="clear-div"></div>
+        <p>----</p>
+        <p id="131text1">This text will fade out after clicking the button.</p>
+        <button id="131-fade-out-button">Fade Out</button>
+        <div class="clear-div"></div>
+        <p id="131text2" class="display-none">This text will fade in after clicking the button.</p>
+        <button id="131-fade-in-button">Fade In</button>
+        <p>----</p>
+        <p id="131text3">Click the button below to toggle visibility of this sentence.</p>
+        <button id="131-toggle-fade-button">Toggle Fade</button>
+        <hr>
+
+        <h3><ins>133. Animating Content</ins></h3>
+        <div id="circle2"></div>
+        <div class="clear-div"></div>
+        <hr>
+
+        <h3><ins>135. AJAX</ins></h3>
+        <p>- Made by Google for their Gmail interface. And now it's widely used (any webmail app, Facebook, Twitter, etc.)
+            <br>- Allows you to grab content from your server within your web page.
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;i.e. When a user clicks on a button, you can do something with that <em>without</em> refreshing the page
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Example:</strong>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;After clicking 'Send', the email client sends the: email content, recipient, sender, CC/BCC, etc., to a server. The server then sends the email itself, and reports back to the website saying if it was done successfully or not. All of this is done without having to reload the page.
+            <br>- Downside: AJAX doesn't work on local files (on your computer).
+        </p>
+        <hr>
+        <p>-------- Edited in Brackets --------</p>
+        <p>----</p>
+        <ul>
+            <li>Opened 131-xx-jquerysections.html with Brackets through Cyberduck (since that's where the server is live, i.e. usable for AJAX</li>
+            <li>Created info.txt through Cyberduck and wrote a secret message to be obtained via AJAX</li>
+        </ul>
+        <p id="135text"></p>
+        <p>-------- Edited in Brackets --------</p>
+
+
+        <!-- * INTERNAL JS/jQuery -->
+        <script type="text/javascript">
+
+        // 131. Fading Content
+            // To fade out whatever item is clicked
+            // Fading is a specific type of animation (section 133)
+            // Changed from "div" to ".131shape" to prevent affecting future sections
+            $(".131shape").click(function() {
+
+                //$(this).fadeOut();
+
+                $(this).fadeOut("slow", function() {
+
+                    alert("Fade Out has finished");
+
+                }); // end fadeOut callback function
+                // Callback functions are useful for when you're getting data from another website/another bit of your website (which can take a while). You can wait and process that data via callback function
+
+            }); // end .131shape.click function
+            /* Fun Fact:
+            $(this).hide(); == $(this).css("display", "none");
+            */
+
+            // Have paragraph fade out when button is clicked
+            $("#131-fade-out-button").click(function() {
+
+                $("#131text1").fadeOut();
+
+            }); // end #131-fade-out-button.click function
+
+            // Have paragraph fade in when button is clicked
+            $("#131-fade-in-button").click(function() {
+
+                $("#131text2").fadeIn();
+
+            }); // end #131-fade-in-button.click function
+
+            // Toggle text to appear or disappear
+                // 1. My version does NOT actually FADE in/out
+                // 2. Rob's first example
+                // 3. Rob's second example
+            // 3. var textShowing = true;
+                // Use a var to keep track of the state of #131text3's display state (and various other items throughout page)
+            $("#131-toggle-fade-button").click(function() {
+
+                if($("#131text3").css("display") == "none") {
+                // if($(textShowing)) {} / if($(textShowing == true)) {} // 3.
+
+                    // $("#131text3").css("display", "block"); // 1.
+                    $("#131text3").fadeIn(); // 2.
+                    /* $("#131text3").fadeOut(function() { // 3. 
+
+                        textShowing = false;
+
+                    }); // end #131text3.fadeOut callback function */
+
+                } // end if
+                else {
+
+                    //$("#131text3").css("display", "none"); // 1.
+                    $("#131text3").fadeOut(); // 2.
+                    /* $("#131text3").fadeIn(function() { // 3.
+
+                        textShowing = true;
+
+                    }); // end #131text3.fadeIn callback function */
+
+                } // end else
+
+            }); // end #131-toggle-fade-button.click function
+
+        // 133. Animating Content
+            $("#circle2").click(function() {
+
+                // $(this).animate({cssProperty: "value"}, milliseconds);
+                    // Use JS names, not CSS (for properties). Typically remove hyphen and capitalize next word
+                // $(this).animate({width: "400px"}, 2000);
+                // $(this).animate({width: "400px", height: "400px"}, 2000);
+
+                // General convention is to put multiple attributes on different lines, for better legibility
+                /*
+                $(this).animate({
+                    width: "400px",
+                    height: "400px",
+                    marginLeft: "100px",
+                    marginTop: "100px"
+                }, 2000);
+                */
+                
+                // To change background color AFTER animation (callback function)
+                $(this).animate({
+                    width: "400px",
+                    height: "400px",
+                    marginLeft: "100px",
+                    marginTop: "100px"
+                }, 2000, function() {
+
+                    $(this).css("background-color", "red");
+                
+                }); // end this.animate callback function
+
+            }); // end #circle2.click function
+
+        // 135. AJAX
+        // -------- Edited in Brackets --------
+            // Simplest one first
+            $.get("info.txt", function(data) {
+                
+                alert(data);
+                
+            }); // end .get callback function
+            /* Cons:
+                - No option to do something else if .get request fails
+            */
+            
+            // Recommended to use with a real, live site
+            $.ajax("info.txt")
+                .done(function(data) {
+                // When AJAX request is complete
+                alert(data);
+                
+            })
+                .fail(function() {
+                // If URL is misspelled or user's internet goes down, so there's no data to return
+                alert("Could not get data");
+                
+            }); // end .ajax"info.text".done.fail function
+            
+            // Add text into existing empty paragraph
+            $.ajax("info.txt")
+                .done(function(data) {
+                    
+                    $("p").html(data);
+                
+            })
+                .fail(function() {
+                
+                    alert("Could not get data");
+                
+            }); // end .ajax"#135text".done.fail function
+            
+        
+        // -------- Edited in Brackets --------
+
+        </script>
+
+    </body>
+
+</html>

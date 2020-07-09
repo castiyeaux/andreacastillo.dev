@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Webpage With Style 3</title>
+
+        <!-- *INTERNAL CSS -->
+        <style>
+
+            .red {
+                color: red;
+            }
+
+            #green {
+                color: green;
+            }
+
+            .underlined {
+                text-decoration: underline;
+            }
+
+            #section1 {
+                color: #4285F4;
+                background-color: #CEF6CE;
+                width: 200px;
+                position: relative;
+                left: 100px;
+            }
+
+            #section2 {
+                color: black;
+                background-color: #8AB4F7;
+                width: 400px;
+                margin: 100px;
+            }
+
+            #section3 {
+                color: #4285F4;
+                background-color: #CEF6CE;
+                width: 200px;
+                margin: 100px 50px;
+            }
+
+            #section4 {
+                color: black;
+                background-color: #8AB4F7;
+                width: 200px;
+                margin: 100px 50px 200px 20px;
+            }
+
+            #section5 {
+                color: #4285F4;
+                background-color: #CEF6CE;
+                width: 200px;
+                margin-top: 100px;
+            }
+
+            #section6 {
+                color: black;
+                background-color: #8AB4F7;
+                width: 200px;
+                margin: 50px 20px;
+            }
+
+            #section7 {
+                color: #4285F4;
+                background-color: #CEF6CE;
+                width: 200px;
+                padding: 5px;
+            }
+
+            #section8 {
+                color: black;
+                background-color: #8AB4F7;
+                width: 200px;
+                padding: 70px 50px 10px 30px;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <p id="top"></p>
+
+        <h3 id="margins"><ins>Margins</ins></h3>
+        <div id="section1">
+            <p>Paragraph relatively positioned 100px <em>from the left</em>.</p>
+        </div>
+        <div id="section2">
+            <p>Paragraph with 100px margins on <strong><em>all</em></strong> sides.</p>
+        </div>
+        <p>This paragraph is not floated!</p>
+        <p>* Main difference between relative position and margin: <br>- <strong>Relative position</strong> is manipulating the position by basically adding a margin, but only on one side at a time. Ex. left: 100px; top: -100px; <br>- <strong>Margins</strong> add &quot;padding&quot; on  all sides of the object which, in turn, manipulate the position.</p>
+        <p>----</p>
+        <div id="section3">
+            <p>Paragraph with top and bottom margins of 100px, and left and right margins of 50px.</p>
+        </div>
+        <div id="section4">
+            <p>Paragraph with top margin of 100px, bottom margin of 200px, left margin of 20px, and right margin of 50px.</p>
+        </div>
+        <p>----</p>
+        <div id="section5">
+            <p>Paragraph with only top margin set to 100px.</p>
+        </div>
+        <div id="section6">
+            <p>Paragraph with top and bottom margins of 50px, and left and right margins of 20px.</p>
+        </div>
+        <p><em><strong>Margins</strong></em> are used when you want the element to remain in the flow of the page, and to spread everything out relative to it.<br><em><strong>Positioning</strong></em> is used when you want the element to be taken out of the flow of the page, and move it around on top of other elements.</p>
+        <hr>
+
+        <h3 id="padding"><ins>Padding</ins></h3>
+        <p>&quot;Padding is pretty similar to margins, but it works on the <em>inside</em> of an object, rather than the outside.&quot;</p>
+        <div id="section7">
+            <p>Paragraph with 5px gap (padding) between text and blue div.</p>
+        </div>
+        <div id="section8">
+            <p>Paragraph with 70px top padding, 10px bottom padding, 30px left padding, and 50px right padding.</p>
+        </div>
+        <p>* If there is a width previously specified (as with all the above examples), the padding is added <em>on top/in addtion to</em> the width. <br>- Ex. The blue box above has a width of 200px. Plus the 30px left padding and 50px right padding, total/actual width of the blue box is 280px.</p>
+        <p>--</p>
+        <p>Browsers have default margins and padding built-in to their elements - which can make the #pixelperfect design difficult to get.</p>
+        <p>To get rid of the defaults:
+            <br>&apos;&apos;&apos;
+            <br>body {
+            <br>    margin: 0;
+            <br>    padding: 0;
+            <br>}
+            <br>p {
+            <br>margin: 0;
+            <br>padding: 0;    
+            <br>}
+            <br>&apos;&apos;&apos;
+        </p>
+        <p>* Do &apos;p&apos; if needed! i.e. if there is still a gap in between the boxes.</p>
+        <p>* Since the default margins and padding can vary from browser to browser, using a <a href="https://www.google.com/search?q=css+reset&rlz=1C1GCEU_enUS889US889&oq=css+reset&aqs=chrome..69i57j0l7.1425j0j7&sourceid=chrome&ie=UTF-8">CSS Reset</a> can help reset the default - no matter the browser - to help match the output to your input. (i.e. If your site looks different on different browsers, despite the same exact code)</p>
+        <hr>
+
+        <!-- *FOOTER -->
+        <p id="bottom"><a href="#top">Back to Top</a></p>
+        <p><a href="#margins">Back to Margins</a></p>
+        <p><a href="#padding">Back to Padding</a></p>
+        
+        <p><a href="48-52-csssections.html">To 48-52-csssections</a></p>
+        <p><a href="54-60csssections.html">To 54-60csssections</a></p>
+        <p><a href="66-74csssections.html">To 66-74csssections</a></p>
+
+    </body>
+
+</html>

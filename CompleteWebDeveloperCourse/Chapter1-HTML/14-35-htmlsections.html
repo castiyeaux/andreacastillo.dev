@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>castiyeaux</title>
+	
+	</head>
+	
+	<body>
+	
+		<p id="top"></p>
+
+		<h2 id="headers"><ins>Headers</ins></h2>
+		<h1>Header 1</h1>
+		<h2>Header 2</h2>
+		<h3>Header 3</h3>
+		<h4>Header 4</h4>
+		<h5>Header 5</h5>
+		<h6>Header 6</h6>
+
+		<hr>
+
+		<h2 id="textformatting"><ins>Text Formatting</ins></h2>
+		<p>This is a paragraph.</p>
+		<p>This is also a paragraph, <br>but it has a line break.</p>
+		<p>This paragraph has one <b>bolded</b> word.</p>
+		<p>This paragraph has one <strong>strong</strong> word. [preferred]</p>
+		<p>This paragraph has one <i>italicized</i> word.</p>
+		<p>This paragraph has one <em>emphasized</em> word. [preferred]</p>
+		<p>This paragraph has one <u>underlined</u> word.</p>
+		<p>This paragraph has one <ins>inserted</ins> word. [preferred]</p>
+		<p>This paragraph has one <sup>superscripted</sup> word.</p>
+		<p>This paragraph has one <sub>subscripted</sub> word.</p>
+		<p>This paragraph has one <del>deleted</del> word.</p>
+		<br>
+		<p><a href="https://www.w3schools.com/html/html_formatting.asp">More info on HTML text formatting</a></p>
+
+		<hr> <!-- Horizontal Rule: -Self-closing - Draws horizontal line to 
+				create sections-->
+		<h2 id="unorderedlists"><ins>Unordered Lists</ins></h2>
+		<ul>
+			<li>Unordered <strong>List</strong> Item 1</li>
+			<li>Unordered <em>List</em> Item 2</li>
+			<li>Unordered <del>List</del> Item 3</li>
+			<li>Unordered <ins>List</ins> Item 4</li>
+		</ul>
+
+		<hr>
+
+		<h2 id="orderedlists"><ins>Ordered Lists</ins></h2>
+		<ol>Standard
+			<li>Ordered <sub>List</sub> Item 1</li>
+			<li>Ordered <mark>List</mark> Item 2</li>
+			<li>Ordered <small>List</small> Item 3</li>
+			<li>Ordered <sup>List</sup> Item 4</li>
+		</ol>
+
+		<ol start="10">Different starting point
+			<li>Ordered <sub>List</sub> Item 1</li>
+			<li>Ordered <mark>List</mark> Item 2</li>
+			<li>Ordered <small>List</small> Item 3</li>
+			<li>Ordered <sup>List</sup> Item 4</li>
+		</ol>
+
+		<ol reversed>Reverse list order
+			<li>Ordered <sub>List</sub> Item 1</li>
+			<li>Ordered <mark>List</mark> Item 2</li>
+			<li>Ordered <small>List</small> Item 3</li>
+			<li>Ordered <sup>List</sup> Item 4</li>
+		</ol>
+
+		<ol type="I">Types: A, a, 1, I, i
+			<li>Ordered <sub>List</sub> Item 1</li>
+			<li>Ordered <mark>List</mark> Item 2</li>
+			<li>Ordered <small>List</small> Item 3</li>
+			<li>Ordered <sup>List</sup> Item 4</li>
+		</ol>
+
+		<ol>Nested Lists
+			<li>Ordered List Item 1 - Parent 1</li>
+				<ol type="a">
+					<li>Ordered List Item 1a - Child 1</li>
+					<li>Ordered List Item 1b - Child 2</li>
+				</ol>
+			<li>Ordered List Item 2 - Parent 2</li>
+				<ol type="a">
+					<li>Ordered List Item 2a - Oldest Child 1</li>
+						<ol type="I">
+							<li>Ordered List Item 2aI - Middle Child 1</li>
+							<li>Ordered List Item 2aII - Middle Child 2</li>
+						</ol>
+					<li>Ordered List Item 2b - Oldest Child 2</li>
+						<ol type="i">
+							<li>Ordered List Item 2bi - Middle Child 1</li>
+								<ol type="A">
+									<li>Ordered List Item 2biA - Youngest Child 1</li>
+									<li>Ordered List Item 2biB - Youngest Child 2</li>
+								</ol>
+							<li>Ordered List Item 2bii - Middle Child 2</li>
+								<ol type="1" start="2" reversed>
+									<li>Ordered List Item 2bii2 - Youngest Child 1</li>
+									<li>Ordered List Item 2bii1 - Youngest Child 2</li>
+								</ol>
+						</ol>
+				</ol>
+			<li>Ordered List Item 3 - Parent 3</li>
+			<li>Ordered List Item 4 - Parent 4</li>
+		</ol>
+
+		<hr>
+
+		<h2 id="images"><ins>Images</ins></h2>
+		<img src="Pictures/Andremma_Courthouse-4.jpg" width="400" height="600">
+			<!--Can also add 'align="right"' as an attribute-->
+		<p>Newlyweds, Andrea & Emma, in front of the Courthouse</p>
+
+		<hr>
+
+		<h2 id="forms"><ins>Forms</ins></h2>
+		<form>
+
+			<p><strong>Name: </strong><input type="text" placeholder="firstName lastName"></p>
+			<p><strong>Age: </strong><input type="number"></p>
+
+			<p><strong>Select military branch(es) of service:</strong></p>
+			<p><input type="checkbox" checked> Did Not Serve</p>
+			<p><input type="checkbox"> Air Force</p>
+			<p><input type="checkbox"> Army</p>
+			<p><input type="checkbox"> Coast Guard</p>
+			<p><input type="checkbox"> Marine Corps</p>
+			<p><input type="checkbox"> Navy</p>
+			<p><input type="checkbox"> Space Force</p>
+
+			<p><strong>Select gender:</strong></p>
+			<p><input type="radio" name="gender" value="cf"> Cisgender Female</p>
+			<p><input type="radio" name="gender" value="cm"> Cisgender Male</p>
+			<p><input type="radio" name="gender" value="tf"> Transgender Female</p>
+			<p><input type="radio" name="gender" value="tsm"> Transgender Male</p>
+			<p><input type="radio" name="gender" value="nb"> Non-Binary</p>
+			<p><input type="radio" name="gender" value="gf"> Gender Fluid</p>
+			<p><input type="radio" name="gender" value="gn"> Gender Nonconfirming</p>
+			<p><input type="radio" name="gender" value="o"> Other: <input type="text"></p>
+			
+			<p><strong>Favorite food:</strong>
+			<select>
+				<option>Choose one</option>
+				<option>Pizza</option>
+				<option>Ice Cream</option>
+				<option>Hamburgers</option>
+				<option>Jambalaya</option>
+			</select>
+			</p>
+
+			<p><strong>Zodiac sign:</strong></p>
+			<select>
+				<option selected>Choose one</option>
+				<option>Aquarius</option>
+				<option>Pisces</option>
+				<option>Aries</option>
+				<option>Taurus</option>
+				<option>Gemini</option>
+				<option>Cancer</option>
+				<option>Leo</option>
+				<option>Virgo</option>
+				<option>Libra</option>
+				<option>Scorpio</option>
+				<option>Sagittarius</option>
+				<option>Capricorn</option>
+			</select>
+
+			<p><strong>Click 'Submit' after completion.</strong></p>
+			<p><input type="submit" value="'Submit'"></p>
+
+		</form>
+
+		<hr>
+
+		<h2 id="tables"><ins>Tables</ins></h2>
+		<table>
+			
+			<thead>
+
+				<tr>
+					<th>Column 1</th>
+					<th>Column 2</th>
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr>
+					<td>Table Data Row 1</td>
+					<td>Table Data Row 1</td>
+				</tr>
+				<tr>
+					<td>Table Data Row 2</td>
+					<td>Table Data Row 2</td>
+				</tr>
+				<tr>
+					<td>Table Data Row 3</td>
+					<td>Table Data Row 3</td>
+				</tr>
+				<tr>
+					<td>Table Data Row 4</td>
+					<td>Table Data Row 4</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+		<br>
+
+		<table>
+			
+			<thead>
+
+				<tr>
+					<th>Name</th>
+					<th>Species</th>
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr>
+					<td>Andrea</td>
+					<td>Human</td>
+				</tr>
+				<tr>
+					<td>Emma</td>
+					<td>Human</td>
+				</tr>
+				<tr>
+					<td>Leia</td>
+					<td>Dog</td>
+				</tr>
+				<tr>
+					<td>Gandalf the Gray</td>
+					<td>Cat</td>
+				</tr>
+				<tr>
+					<td>Sméagol/Gollum</td>
+					<td>Cat</td>
+				</tr>
+				
+			</tbody>
+
+		</table>
+
+		<hr>
+
+		<h2 id="links"><ins>Links</ins></h2>
+		<p><a href="http://www.google.com">Absolute Link to Google.com</a></p>
+		<p><a href="http://www.google.com"><img src="https://yt3.ggpht.com/a/AATXAJz14ZPzRqz3EJ2VvEdsUahT2Gt77bB9N5Q6gQ=s900-c-k-c0xffffffff-no-rj-mo" height="300" width="300"></a></p>
+		<p><a href="8-helloworld.html">Relative Link to helloworld.html</a></p>
+		<p><a href="#bottom">Anchor Link to Bottom (where more anchor links are)</a></p>
+
+		<hr>
+
+		<h2 id="htmlentities"><ins>HTML Entities</ins></h2>
+		<p><a href="https://www.w3schools.com/html/html_entities.asp">w3schools: HTML Entities</a></p>
+		<p>To be able to display: &lt;a href=""&gt;&lt;/a&gt; (the actual greater/less than signs used in code)</p>
+		<p><a href="https://dev.w3.org/html5/html-author/charref">Complete list of HTML entities</a></p>
+		<h4>Common Character Entities</h4>
+		<ul style="list-style-type: none;">
+			<li>&nbsp; , non-breaking space (since HTML doesn't recgonize spaces immediately after an opening tag or multiple spaces): &quot;&nb sp;&quot; (without the space in between)</li>
+			<li>&lt; , less than: &quot;&l t;&quot; (without the space in between)</li>
+			<li>&gt; , greater than: &quot;&g t;&quot; (without the space in between)</li>
+			<li>&amp; , ampersand: &quot;&am p;&quot; (without the space in between)</li>
+			<li>&quot; , double quotation mark: &apos;&qu ot;&apos; (without the space in between)</li>
+			<li>&apos; , single quotation mark/apostrophe: &quot;&ap os;&quot; (without the space in between)</li>
+		</ul>
+
+		<hr>
+
+		<h2 id="iframes"><ins>IFrames</ins></h2>
+		<p><sub>mini websites!!</sub> *Google/Apple/Twitter <em>"refused to connect"</em>*</p>
+		<iframe src="https://apnews.com/"></iframe>
+		<p>Can use absolute links, like above, or relative links, like below.</p>
+		<iframe src="8-helloworld.html"></iframe>
+		<p><small>^Great for if you want to add a translation website directly onto your site</small></p>
+		<p>Can also embed videos! Artie Shaw's Concerto for Clarinet below.</p>
+		<iframe width="660" height="415" src="https://www.youtube.com/embed/OMOi5vtxCbA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		<hr>
+		<h3 id="forgetyou"><ins>How To Write CeeLo Green's Riff From <em>Forget You</em></ins></h3>
+		<p>I said, 'forget you',</p>
+		<p><sub>oo</sub>oo<sup>oo</sup>!</p>
+
+		<hr>
+
+		<p id="bottom"><a href="#top">Back to Top</a></p>
+		<p><a href="#headers">Back to Headers</a></p>
+		<p><a href="#unorderedlists">Back to Unordered Lists</a></p>
+		<p><a href="#orderedlists">Back to Ordered Lists</a></p>
+		<p><a href="#images">Back to Images</a></p>
+		<p><a href="#forms">Back to Forms</a></p>
+		<p><a href="#tables">Back to Tables</a></p>
+		<p><a href="#links">Back to Links</a></p>
+		<p><a href="#htmlentities">Back to HTML Entities</a></p>
+		<p><a href="#iframes">Back to IFrames</a></p>
+		<p><a href="#forgetyou">Back to <em>Forget You</em></a></p>
+
+	</body>
+
+</html>

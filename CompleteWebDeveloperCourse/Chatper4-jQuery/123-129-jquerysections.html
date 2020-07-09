@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery 1</title>
+
+        <!-- * jQuery hosted by Google -->
+        <!-- * - likely already installed on most computers due to it's popularity, so site will load/run faster. But at Google's mercy: link changes, service down, etc -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+        <!-- * To NOT 'rely' on another web service -->
+        <!-- * - jquery.com>Download jQuery (compressed version; will load faster); An external .js file stored on my computer and linked to by my server (not Google's) -->
+        <!-- * - Also handy while developing a website if working offline of have a bad internet connection (because working with a local version of jQuery) -->
+        <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+        <!-- * INTERNAL CSS -->
+        <style type="text/css">
+
+            #circle {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .square {
+                height: 200px;
+                width: 200px;
+                background-color: red;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .clear-div {
+                clear: both;
+            }
+
+            #circle2 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: blue;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            #circle3 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: orange;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            #circle4 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: purple;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            #circle5 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: yellow;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .square2 {
+                height: 200px;
+                width: 200px;
+                background-color: brown;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            #circle6 {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background-color: pink;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+            .square3 {
+                height: 200px;
+                width: 200px;
+                background-color: aqua;
+                margin: 10px;
+                float: left; /* to view horizontally (while on laptop) */
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h3><ins>123. Using jQuery In Your Webpages</ins></h3>
+        <div id="jquery-test"></div>
+        <hr>
+
+        <h3><ins>125. Detecting A Click</ins></h3>
+        <div id="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="clear-div"></div>
+        <hr>
+
+        <h3><ins>127. Changing Website Content</ins></h3>
+        <!-- Want to change the text below when the green circle is clicked -->
+        <div id="circle2"></div>
+        <div class="clear-div"></div>
+        <p id="127text1">This text will change after clicking the blue circle.</p>
+        <div id="circle3"><p id="127text2"></p></div>
+        <div class="clear-div"></div>
+        <p>----</p>
+        <div id="circle4"></div>
+        <div class="clear-div"></div>
+        <iframe id="iframe1" src="http://www.codestars.com" frameborder="10" height="350px" width="550px"></iframe>
+        <hr>
+
+        <h3><ins>129. Changing Website Styles</ins></h3>
+        <div id="circle5"></div>
+        <div class="clear-div"></div>
+        <p>----</p>
+        <div class="square2"></div>
+        <div class="square2"></div>
+        <div class="clear-div"></div>
+        <p>----</p>
+        <div id="circle6"></div>
+        <div class="square3"></div>
+        <div class="square3"></div>
+        <div class="clear-div"></div>
+        <hr>
+
+
+        <!-- * INTERNAL JS/jQuery -->
+        <script type="text/javascript">
+
+        // 123. Using jQuery In Your Webpages
+            // Testing if jQuery is installed
+            if(typeof jQuery == "undefined") {
+
+                document.getElementById("jquery-test").innerHTML = "jQuery is NOT installed!";
+
+            } // end if
+            else {
+
+                document.getElementById("jquery-test").innerHTML = "jQuery is installed!";
+
+            } // end else
+
+        // 125. Detecting A Click
+            // $ = String; To select an object, 'invoke' jQuery (most jQuery starts with $)
+            $("#circle").click(function() {
+            // Equivalent of document.getElementById("circle").onclick = function() {}
+                alert("circle was clicked");
+
+            }); // end #circle.click function
+
+            $(".square").click(function() {
+            // Equivalent of document.getElementById("square").onclick = function() {}
+                alert("a square was clicked");
+
+            }); // end .square.click function
+
+            // If it doesn't start with a '#' or a '.', then all the elements with that name will be selected
+            /*
+            $("div").click(function() {
+
+                alert("a div was clicked");
+
+            }); // end div.click function
+            */
+
+        // 127. Changing Website Content
+            // To change text on page after blue circle is clicked
+            $("#circle2").click(function() {
+
+                $("#127text1").html("The blue circle was clicked!");
+                alert($("#127text1").html());
+
+            }); // end #circle2.click function
+
+            $("#circle3").hover(function() {
+
+                $("#127text2").html("The orange circle was hovered over!");
+                //alert($("#127text2").html());
+
+            }); // end #circle3.hover function
+
+            $("#circle4").hover(function() {
+
+                $("#iframe1").attr("src", "https://www.apnews.com");
+
+            }); // end #circle4.hover function
+
+        // 129. Changing Website Styles
+            $("#circle5").click(function() {
+            // $("#circle5").css("PROPERTY", "VALUE");
+            // - to CHANGE original value of given property with given value
+            // $("#circle5").css("PROPERTY");
+            // - to RETURN original value of given property
+
+                $("#circle5").css("width", "400px");
+                $("#circle5").css("background-color", "red");
+                alert("circle5 height: " + $("#circle5").css("height"));
+                alert("page body width: " + $("body").css("width"));
+
+            }); // end #circle5.click function
+
+            // To make each square disappear after clicking them
+            // 'this' is the element that has been clicked/the element we're dealing with at the moment
+            $(".square2").click(function() {
+
+                $(this).css("display", "none");
+
+            }); // end .square2.click function
+
+            // To send alert with id or class clicked
+            $("div").click(function() {
+
+                if($(this).attr("id") == "circle6") {
+
+                    alert("You clicked on a circle!");
+
+                } // end if
+                else {
+
+                    alert("You clicked on a square!");
+
+                } // end else
+
+            }); // end div.click function
+
+        </script>
+
+    </body>
+
+</html>
